@@ -1,0 +1,208 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SONIC WORKSHOP | The Living Music Book</title><style>
+:root{--bg:#090c14;--panel:#141722;--panel2:#1e202d;--line:#3d3345;--text:#fff2e7;--muted:#b6aabf;--orange:#ff994a;--cyan:#53ddec;--lime:#a5f474;--pink:#e49dff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 18% 0%,#47231e 0,transparent 36%),radial-gradient(ellipse at 100% 100%,#083c4a 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.6 system-ui,Segoe UI,sans-serif;min-height:100vh}button,input,select{font:inherit}button{cursor:pointer;border:1px solid #5d414a;background:#281d25;color:var(--text);border-radius:10px;padding:9px 13px}button:hover{border-color:var(--orange)}button.active,.primary{background:var(--orange);color:#17111b;font-weight:800;border-color:var(--orange)}input,select{background:#0e111b;border:1px solid #564656;border-radius:8px;color:var(--text);padding:9px;max-width:100%}input[type=range]{accent-color:var(--orange);padding:0}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(27px,4vw,53px);line-height:1.08;letter-spacing:-1.6px;text-shadow:4px 5px #61302d}h1 span{color:var(--orange)}h2{font-size:26px}h3{font-size:18px;color:#ffe0bc}.eyebrow{letter-spacing:3px;color:var(--lime);font-size:11px;font-weight:900}.muted{color:var(--muted)}.shell{display:grid;grid-template-columns:260px 1fr;min-height:100vh}.side{padding:24px 16px;background:#0c0c15dc;border-right:1px solid var(--line);position:sticky;top:0;height:100vh;overflow:auto}.brand{font-size:20px;font-weight:1000;color:var(--orange);letter-spacing:1px}.navlabel{font-size:11px;color:var(--lime);letter-spacing:2px;margin:25px 8px 9px}.nav{display:block;width:100%;text-align:left;background:transparent;border-color:transparent;color:#cbbecf;margin-bottom:5px}.nav.active{background:#38262d;color:white;border-color:#875144}.main{padding:30px clamp(16px,3vw,50px);max-width:1450px;width:100%;margin:auto}.hero{border-bottom:1px solid #6d4148;padding-bottom:20px;margin-bottom:25px}.card{background:#15151fdf;border:1px solid var(--line);border-radius:19px;padding:22px;margin-bottom:18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.tile{background:var(--panel2);border:1px solid #4c394b;border-radius:14px;padding:18px}.tile strong{display:block;color:#ffe0bd;font-size:17px}.tag{font-size:11px;color:var(--cyan);letter-spacing:1px}.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.between{justify-content:space-between}.hidden{display:none!important}.piano{display:flex;position:relative;height:175px;overflow:hidden;border-radius:9px;margin:20px 0}.key{flex:1;position:relative;background:linear-gradient(#f5ede7,#d3c6bb);border:1px solid #6e6771;color:#332c30;border-radius:0 0 7px 7px;padding:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:10px;min-width:20px}.key.black{background:linear-gradient(#36313d,#090b11);color:#f5e9df;flex:0 0 4.2%;height:61%;margin-left:-2.1%;margin-right:-2.1%;z-index:2;border-color:#101015}.key.hit{background:var(--orange);color:#12121c}.key.in-scale{box-shadow:inset 0 -12px var(--cyan)}.key.root{box-shadow:inset 0 -15px var(--orange)}.pill{display:inline-block;padding:3px 9px;border:1px solid #625060;border-radius:20px;margin:4px;color:#e4d8e9}.readable{max-width:850px}.readable p{color:#d4c8d7}.exercise{border-left:3px solid var(--lime);background:#18221e;padding:13px 16px;border-radius:0 9px 9px 0}.frame{width:100%;height:820px;border:1px solid #654250;border-radius:13px;background:#0b0d15}.rud{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;border-bottom:1px solid #443746}.rud:hover{background:#23212e}.rud small{color:var(--muted)}.meter{height:10px;border-radius:8px;background:#34313e;overflow:hidden}.meter>div{height:100%;background:linear-gradient(90deg,var(--orange),var(--cyan));width:0}.big{font-size:46px;font-weight:900;color:var(--orange)}.footer{margin-top:40px;color:#988b9c;font-size:12px}.search{width:100%}@media(max-width:800px){.shell{display:block}.side{height:auto;position:static;display:flex;flex-wrap:wrap;gap:5px}.side .brand{width:100%}.navlabel{width:100%;margin:8px 0}.nav{width:auto;font-size:12px}.main{padding:18px}.frame{height:950px}}
+
+/* RING 1.2 | SONIC CHROMATIC REACTOR */
+:root{--sonic-hue:25;--sonic-accent:hsl(var(--sonic-hue) 96% 62%);--sonic-second:hsl(calc(var(--sonic-hue) + 125) 88% 68%);--sonic-third:hsl(calc(var(--sonic-hue) + 225) 85% 73%);--orange:var(--sonic-accent);--cyan:var(--sonic-second);--lime:var(--sonic-third);--line:hsl(var(--sonic-hue) 25% 29%);--panel2:hsl(var(--sonic-hue) 17% 15%)}
+html{scrollbar-width:thin;scrollbar-color:var(--sonic-accent) #10101a}
+html::-webkit-scrollbar,.side::-webkit-scrollbar,.main::-webkit-scrollbar{width:11px;height:11px}
+html::-webkit-scrollbar-track,.side::-webkit-scrollbar-track,.main::-webkit-scrollbar-track{background:#10101a}
+html::-webkit-scrollbar-thumb,.side::-webkit-scrollbar-thumb,.main::-webkit-scrollbar-thumb{border:2px solid #10101a;border-radius:12px;background:linear-gradient(180deg,var(--sonic-accent),var(--sonic-second),var(--sonic-third))}
+.side{scrollbar-width:thin;scrollbar-color:var(--sonic-accent) #10101a}
+body{background:radial-gradient(ellipse at 18% 0%,hsl(var(--sonic-hue) 65% 20% / .6),transparent 40%),radial-gradient(ellipse at 100% 100%,hsl(calc(var(--sonic-hue) + 125) 65% 16% / .5),transparent 46%),var(--bg)}
+.brand,.big,h1 span,.tag{color:var(--sonic-accent)}
+.nav.active{background:hsl(var(--sonic-hue) 45% 21%);border-color:var(--sonic-accent)}
+button:hover,.tile:hover{border-color:var(--sonic-accent)}
+button.active,.primary{background:var(--sonic-accent);border-color:var(--sonic-accent)}
+.key.root{box-shadow:inset 0 -15px var(--sonic-accent)}
+.key.in-scale{box-shadow:inset 0 -12px var(--sonic-second)}
+.hero{border-bottom-color:var(--line)}
+.chroma{padding:15px 17px;margin:0 0 20px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(120deg,hsl(var(--sonic-hue) 35% 16% / .8),#10111be8);box-shadow:inset 0 1px 0 #ffffff12}
+.chroma-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.chroma-title{font:800 11px/1.3 Consolas,monospace;letter-spacing:2px;color:var(--sonic-accent)}
+.chroma-readout{font:700 12px Consolas,monospace;color:var(--sonic-second)}
+.chroma-controls{display:flex;align-items:center;gap:14px;margin-top:12px;flex-wrap:wrap}
+.chroma-controls input[type=range]{flex:1;min-width:150px;accent-color:var(--sonic-accent)}
+.chroma-controls button{font:800 11px Consolas,monospace;padding:7px 10px;border-color:var(--sonic-accent);color:var(--sonic-accent);background:transparent}
+.chroma-controls button:hover{background:var(--sonic-accent);color:#14121b}
+.chroma-controls label{display:flex;align-items:center;gap:6px;color:var(--muted);font:11px Consolas,monospace;cursor:pointer}
+.chroma-controls input[type=checkbox]{accent-color:var(--sonic-accent)}
+.chroma-swatches{display:flex;gap:5px;margin-top:12px;height:7px}
+.chroma-swatches span{flex:1;border-radius:8px;background:var(--sonic-accent)}
+.chroma-swatches span:nth-child(2){background:var(--sonic-second)}
+.chroma-swatches span:nth-child(3){background:var(--sonic-third)}
+.chroma-swatches span:nth-child(4){background:hsl(calc(var(--sonic-hue) + 300) 85% 65%)}
+body.sonic-invert{--bg:#f5f1eb;--panel:#fffaf3;--panel2:#ece4de;--line:#c3b5ad;--text:#211b29;--muted:#605664;background:radial-gradient(ellipse at 0 0,hsl(var(--sonic-hue) 80% 85%),transparent 40%),#f5f1eb}
+body.sonic-invert .side{background:#f2ece9;border-color:var(--line)}
+body.sonic-invert .card,body.sonic-invert .tile{background:#fffaf3;color:var(--text)}
+body.sonic-invert .readable p,body.sonic-invert .nav,body.sonic-invert .tile strong{color:var(--text)}
+body.sonic-invert .chroma{background:#f6ede7}
+body.sonic-invert button:not(.primary):not(.active),body.sonic-invert input,body.sonic-invert select{background:#fffaf3;color:var(--text)}
+body.sonic-invert .nav.active{background:hsl(var(--sonic-hue) 85% 86%);color:#23172a}
+body.sonic-invert .primary,body.sonic-invert button.active{color:#16121b}
+body.sonic-invert .frame{background:#f8f3f0}
+@media(max-width:800px){.chroma-controls{gap:9px}.chroma-controls input[type=range]{min-width:120px}}
+/* RING 5.7.3 | Rudiment sticking display */
+.rud-sticking{margin-top:10px}
+.rud-sticking-label{font-size:10px;letter-spacing:1.2px;opacity:.65;margin-bottom:7px}
+.rud-sticking-hands{display:flex;flex-wrap:wrap;gap:5px}
+.rud-hand{display:inline-flex;align-items:center;justify-content:center;
+  width:29px;height:32px;border-radius:6px;font-size:13px;font-weight:700;
+  border:1px solid currentColor}
+.rud-hand-r{color:#69dcd0;background:rgba(105,220,208,.09)}
+.rud-hand-l{color:#e5a6ef;background:rgba(229,166,239,.09)}
+
+
+/* RING 5.7.4 | Grace notes, accents and technique */
+.rud-token{display:inline-flex;align-items:center;position:relative;
+  padding-top:10px;margin-right:3px}
+.rud-grace{font-size:10px;color:#f2c3f5;position:absolute;
+  top:0;right:75%;letter-spacing:-1px}
+.rud-accent{font-size:12px;color:#ffc36a;position:absolute;
+  top:-5px;left:40%;font-weight:800}
+.rud-buzz{font-size:12px;letter-spacing:1px;color:#69dcd0;
+  border:1px solid currentColor;padding:9px;border-radius:6px}
+.rud-notation-note{font-size:10px;opacity:.6;margin-top:8px}
+
+</style></head><body><div class="shell"><aside class="side"><div class="brand">♫ SONIC_WORKSHOP</div><div class="muted" style="font-size:12px">WIDGET_WALL / MUSIC LAB / 001</div><div class="navlabel">THE LIVING BOOK</div><button class="nav active" data-view="home">⌂ &nbsp; Workshop Home</button><button class="nav" data-view="foundations">I &nbsp; Sound & Notation</button><button class="nav" data-view="rhythm">II &nbsp; Rhythm & Meter</button><button class="nav" data-view="scales">III &nbsp; Scales & Modes</button><button class="nav" data-view="harmony">IV &nbsp; Chords & Harmony</button><button class="nav" data-view="composition">V &nbsp; Composition</button><button class="nav" data-view="advanced">VI &nbsp; Advanced Theory</button><div class="navlabel">INTERACTIVE INSTRUMENTS</div><button class="nav" data-view="reactor">◉ &nbsp; Polyrhythm Reactor</button><button class="nav" data-view="keyboard">♬ &nbsp; Scale Explorer</button><button class="nav" data-view="chords">♮ &nbsp; Chord Forge</button><button class="nav" data-view="metronome">◷ &nbsp; Metronome</button><button class="nav" data-view="rudiments">🥁 &nbsp; Rudiment Book</button><button class="nav" data-view="trainer">? &nbsp; Ear Trainer</button></aside><main class="main"><section class="chroma" aria-label="Sonic Chromatic Reactor"><div class="chroma-head"><span class="chroma-title">◈ CHROMATIC REACTOR / LIVE PALETTE</span><output class="chroma-readout" id="sonicHueReadout" for="sonicHue">025°</output></div><div class="chroma-controls"><input type="range" id="sonicHue" min="0" max="359" value="25" aria-label="Chromatic hue rotation"><button id="sonicRewarp" type="button">⟳ REWARP</button><label><input type="checkbox" id="sonicInvert"> INVERT</label></div><div class="chroma-swatches" aria-hidden="true"><span></span><span></span><span></span><span></span></div></section><header class="hero"><div class="eyebrow">WIDGET_WALL / SONIC WORKSHOP / RING 1.0</div><h1>THE LIVING <span>MUSIC BOOK</span></h1><p class="muted">Read the theory. Hear the relationships. Open an instrument and experiment.</p><div class="row"><span class="pill">Offline</span><span class="pill">No dependencies</span><span class="pill">Web Audio</span><span class="pill">Local progress</span></div></header>
+<section id="home" class="view"><div class="card"><h2>Welcome to the workshop</h2><p class="readable">Music theory is a collection of ways to describe, organize, and explore sound. This prototype is the beginning of a living reference: chapters teach concepts, while instruments let you hear and manipulate them. It emphasizes common Western notation and harmony, without claiming they are the only musical systems.</p><div class="grid"><div class="tile"><span class="tag">INSTRUMENT 001</span><strong>Polyrhythm Reactor</strong><p>Two independent pulse streams, one shared cycle.</p><button data-go="reactor">Open reactor →</button></div><div class="tile"><span class="tag">INSTRUMENT 002</span><strong>Scale Explorer</strong><p>Play notes and see the interval recipe of a scale.</p><button data-go="keyboard">Explore scales →</button></div><div class="tile"><span class="tag">INSTRUMENT 003</span><strong>Chord Forge</strong><p>Build triads and seventh chords from intervals.</p><button data-go="chords">Forge chords →</button></div><div class="tile"><span class="tag">INSTRUMENT 004</span><strong>Metronome</strong><p>Audible beats, accents, and variable meter.</p><button data-go="metronome">Start timing →</button></div><div class="tile"><span class="tag">REFERENCE 001</span><strong>40 Rudiments</strong><p>A browsable catalog of the standard PAS rudiment names.</p><button data-go="rudiments">Open book →</button></div><div class="tile"><span class="tag">INSTRUMENT 005</span><strong>Ear Trainer</strong><p>Hear a mystery interval and identify it.</p><button data-go="trainer">Train your ear →</button></div></div></div><div class="card"><h3>Workshop design principle</h3><p>One set of musical building blocks powers many experiences: pitch classes, interval patterns, rhythmic cycles, and audio scheduling. This is an expandable first volume, not a claim that every corner of music theory has already been documented.</p></div></section>
+<section id="foundations" class="view hidden"><div class="card readable"><div class="eyebrow">BOOK I</div><h2>Sound, Pitch & Notation</h2><h3>1. What is sound?</h3><p>Sound begins with vibration. In air, pressure variations reach our ears. Repetition rate (frequency, measured in hertz) is closely related to perceived pitch; amplitude influences loudness, and the mixture of frequencies shapes timbre.</p><h3>2. Octaves</h3><p>Doubling a frequency produces an octave above: A4 at 440 Hz and A5 at 880 Hz are one octave apart. The ear often hears them as closely related pitches.</p><h3>3. Twelve-tone equal temperament</h3><p>In the common twelve-tone equal-tempered system, an octave is divided into twelve equal logarithmic steps, called semitones. Each semitone multiplies frequency by 2^(1/12). Other tuning systems exist and are important.</p><h3>4. Written notes</h3><p>A staff uses lines, spaces, clefs, noteheads, rests, accidentals, and time signatures to encode musical events. Letter names A–G repeat across octaves. Sharps and flats alter written pitches; enharmonic spellings can sound the same in equal temperament while serving different harmonic functions.</p><div class="exercise">TRY IT: Open Scale Explorer, play C4 and C5, and listen for the octave relationship.</div><p><button data-go="keyboard" class="primary">Open Scale Explorer →</button></p></div></section>
+<section id="rhythm" class="view hidden"><div class="card readable"><div class="eyebrow">BOOK II</div><h2>Rhythm, Meter & Polyrhythms</h2><h3>1. Pulse, tempo, and meter</h3><p>A pulse is a regular reference beat. Tempo describes its rate. Meter groups beats into recurring patterns, often emphasizing certain positions. A time signature describes the notated grouping and beat-unit relationship; it is not itself a rhythm.</p><h3>2. Subdivision</h3><p>A beat may be divided into two, three, four, or other equal parts. A subdivision is a timing grid, not necessarily an audible hit.</p><h3>3. Polyrhythm</h3><p>A 5:4 polyrhythm fits five evenly spaced attacks and four evenly spaced attacks into the same time span. Both voices begin together and meet at the next cycle boundary. Their combined grid has 20 equal slots, although only some slots contain attacks.</p><h3>4. Cross-rhythm versus changing meter</h3><p>Simultaneous contrasting pulse divisions differ from simply switching between measures of different lengths. Musical context can make either feel ambiguous or fluid.</p><div class="exercise">TRY IT: Set the reactor to 5:4, listen with both voices, then turn down the volume and try tapping the two parts independently.</div><p class="row"><button data-go="reactor" class="primary">Open Polyrhythm Reactor →</button><button data-go="metronome">Open Metronome →</button><button data-go="rudiments">Open Rudiment Book →</button></p></div></section>
+<section id="scales" class="view hidden"><div class="card readable"><div class="eyebrow">BOOK III</div><h2>Scales, Keys & Modes</h2><h3>1. Intervals are distances</h3><p>An interval is a relationship between two pitches. In equal temperament, semitone distances offer a convenient way to model many familiar scales. Spelling matters too: C to D♯ and C to E♭ may sound identical on an equal-tempered keyboard but have different names and functions.</p><h3>2. Major scale</h3><p>The major scale follows the step pattern 2–2–1–2–2–2–1 semitones. From C, this produces C D E F G A B C.</p><h3>3. Natural minor</h3><p>The natural minor scale follows 2–1–2–2–1–2–2. From A, it produces A B C D E F G A.</p><h3>4. Modes</h3><p>Modes such as Dorian, Phrygian, Lydian, Mixolydian, and Locrian have distinct interval structures. The same set of pitch classes can take on a different musical center depending on context.</p><div class="exercise">TRY IT: Compare C Ionian (major) and C Lydian. The raised fourth is the color change.</div><p><button data-go="keyboard" class="primary">Open Scale Explorer →</button></p></div></section>
+<section id="harmony" class="view hidden"><div class="card readable"><div class="eyebrow">BOOK IV</div><h2>Harmony & Chord Construction</h2><h3>1. Building a chord</h3><p>A major triad consists of root, major third (4 semitones), and perfect fifth (7 semitones). A minor triad uses a minor third (3 semitones). Diminished and augmented triads alter the fifth.</p><h3>2. Seventh chords</h3><p>Adding another chord tone creates seventh chords. A dominant seventh is built from 0, 4, 7, and 10 semitones above the root; a major seventh uses 0, 4, 7, and 11.</p><h3>3. Inversions</h3><p>Moving a chord tone into another octave changes its voicing and bass note without necessarily changing the chord's pitch-class identity.</p><h3>4. Function and context</h3><p>In common-practice tonal harmony, tonic, predominant, and dominant functions describe characteristic harmonic tendencies. Other musical traditions organize harmony differently.</p><div class="exercise">TRY IT: Play C major, C minor, and C diminished. Listen for how changing one interval alters the emotional color.</div><p><button data-go="chords" class="primary">Open Chord Forge →</button></p></div></section>
+<section id="composition" class="view hidden"><div class="card readable"><div class="eyebrow">BOOK V</div><h2>Composition & Musical Form</h2><h3>1. Motifs</h3><p>A motif is a small recognizable musical idea. Composers develop motifs through repetition, variation, inversion, transposition, fragmentation, and rhythmic displacement.</p><h3>2. Phrases and cadence</h3><p>Musical phrases create expectations and points of rest or continuation. Cadences are one way tonal music articulates these boundaries.</p><h3>3. Texture and form</h3><p>Monophony, homophony, polyphony, and other textures describe relationships among musical lines. Larger forms such as binary, ternary, rondo, and verse–chorus organize sections over time.</p><h3>4. Start composing</h3><p>Try writing a four-note motif, repeating it with one changed rhythm, and answering it with a contrasting phrase. Composition can begin with rhythm just as easily as pitch.</p><div class="exercise">TRY IT: Use the Metronome to keep time while improvising a motif on the Scale Explorer keyboard.</div><p class="row"><button data-go="keyboard">Scale Explorer →</button><button data-go="metronome">Metronome →</button></p></div></section>
+<section id="advanced" class="view hidden"><div class="card readable"><div class="eyebrow">BOOK VI</div><h2>Advanced Theory: First Doors</h2><h3>1. Modulation</h3><p>Modulation changes the perceived tonal center. Common tones, pivot chords, chromatic motion, and direct key changes are some ways music establishes a new center.</p><h3>2. Secondary dominants</h3><p>A secondary dominant temporarily emphasizes a chord other than the home tonic. For example, D7 may point toward G in a piece centered on C.</p><h3>3. Polymeter</h3><p>Polymeter combines different metrical groupings. Unlike a simple n:m polyrhythm within a common span, parts may have distinct bar lengths that realign only after multiple measures.</p><h3>4. Tuning and temperament</h3><p>Equal temperament is a practical compromise, not a universal physical law. Just intonation, meantone, historical temperaments, and non-Western tuning traditions offer other interval relationships.</p><div class="exercise">NEXT EXPANSION: notation renderer, harmonic analysis, ear-training levels, and deeper cross-cultural theory chapters.</div></div></section>
+<section id="reactor" class="view hidden"><div class="row between"><h2>◉ Polyrhythm Reactor</h2><a href="Polyrhythm_Reactor.html" target="_blank" rel="noopener" style="color:var(--cyan)">Open in separate window ↗</a></div><p class="muted">Original Instrument 001, preserved unchanged. Use its Play button to activate audio.</p><iframe class="frame" title="Polyrhythm Reactor" src="Polyrhythm_Reactor.html" loading="lazy"></iframe></section>
+<section id="keyboard" class="view hidden"><div class="card"><div class="eyebrow">INSTRUMENT 002</div><h2>Scale Explorer</h2><div class="row"><label>Root <select id="scaleRoot"></select></label><label>Scale <select id="scaleType"></select></label><button id="scalePlay" class="primary">▶ Play ascending</button></div><div id="scaleNotes" style="margin-top:14px"></div><div id="piano" class="piano"></div><div id="scaleFormula" class="muted"></div><p class="muted">Click any key to hear it. Colored keys are scale tones; orange marks the tonic. Enharmonic names use a simplified sharp-based display.</p></div></section>
+<section id="chords" class="view hidden"><div class="card"><div class="eyebrow">INSTRUMENT 003</div><h2>Chord Forge</h2><div class="row"><label>Root <select id="chordRoot"></select></label><label>Quality <select id="chordType"></select></label><button id="chordPlay" class="primary">▶ Play chord</button><button id="chordArp">♪ Arpeggiate</button></div><div id="chordNotes" class="big" style="font-size:27px;margin:25px 0"></div><div id="chordIntervals" class="muted"></div><p class="muted">Synthesized tones use twelve-tone equal temperament. The displayed note spelling is simplified for exploration.</p></div></section>
+<section id="metronome" class="view hidden"><div class="card"><div class="eyebrow">INSTRUMENT 004</div><h2>Metronome</h2><div class="row"><label>Tempo <input type="range" id="metroBpm" min="30" max="240" value="100"></label><strong id="metroBpmText">100 BPM</strong><label>Beats per bar <select id="metroBeats"><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>11</option></select></label><button id="metroToggle" class="primary">▶ START</button></div><div id="metroDots" class="row" style="margin-top:30px"></div><p class="muted">The first beat is accented. Audio uses a look-ahead scheduler; visual pulses follow the audio timeline.</p></div></section>
+<section id="rudiments" class="view hidden"><div class="card"><div class="eyebrow">REFERENCE 001</div><h2>The 40 Drum Rudiments</h2><p class="muted">Browse the standard PAS rudiment names, grouped by family. This first edition is a name/index reference, not yet a verified notation or performance guide. Roll, flam, and drag execution requires more than a simple R/L string.</p><input id="rudSearch" class="search" placeholder="Search all 40 rudiments..."><div class="row" style="margin:12px 0"><select id="rudFamily"><option value="">All families</option><option>Roll Rudiments</option><option>Diddle Rudiments</option><option>Flam Rudiments</option><option>Drag Rudiments</option></select><span id="rudCount" class="muted"></span></div><div id="rudList"></div></div></section>
+<section id="trainer" class="view hidden"><div class="card"><div class="eyebrow">INSTRUMENT 005</div><h2>Interval Ear Trainer</h2><p class="muted">Hear two sequential notes, then identify the ascending interval. Use Replay as often as needed.</p><div class="row"><button id="newQuestion" class="primary">▶ New interval</button><button id="replayQuestion">↻ Replay</button><span id="earScore" class="pill">0 correct / 0 attempted</span></div><div id="earChoices" class="grid" style="margin:20px 0"></div><div id="earFeedback" aria-live="polite" style="font-weight:700;color:var(--lime)"></div></div></section>
+<footer class="footer">SONIC WORKSHOP · RING 1.0 · Local-first experimental music education · Audio begins only after interaction · Escaping the laboratory is optional.</footer></main></div>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);let audio=null,master=null;const names=['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
+function initAudio(){if(!audio){audio=new (window.AudioContext||window.webkitAudioContext)();master=audio.createGain();master.gain.value=.23;master.connect(audio.destination)}if(audio.state==='suspended')audio.resume();return audio}
+function tone(midi,when,duration=.38,gain=.23,type='sine'){let ctx=initAudio(),o=ctx.createOscillator(),g=ctx.createGain();o.type=type;o.frequency.value=440*Math.pow(2,(midi-69)/12);o.connect(g);g.connect(master);g.gain.setValueAtTime(0,when);g.gain.linearRampToValueAtTime(gain,when+.009);g.gain.exponentialRampToValueAtTime(.001,when+duration);o.start(when);o.stop(when+duration+.02)}
+function click(when,accent){let ctx=initAudio(),o=ctx.createOscillator(),g=ctx.createGain();o.type='triangle';o.frequency.setValueAtTime(accent?1100:740,when);o.frequency.exponentialRampToValueAtTime(accent?650:400,when+.045);o.connect(g);g.connect(master);g.gain.setValueAtTime(accent?.5:.25,when);g.gain.exponentialRampToValueAtTime(.001,when+.07);o.start(when);o.stop(when+.075)}
+function show(view){document.querySelectorAll('.view').forEach(el=>el.classList.toggle('hidden',el.id!==view));document.querySelectorAll('.nav').forEach(el=>el.classList.toggle('active',el.dataset.view===view));window.scrollTo({top:0,behavior:'smooth'});location.hash=view}
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.view)));document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.go)));if(location.hash&&$(location.hash.slice(1)))show(location.hash.slice(1));
+const scales={'Major / Ionian':[0,2,4,5,7,9,11],'Natural Minor / Aeolian':[0,2,3,5,7,8,10],'Harmonic Minor':[0,2,3,5,7,8,11],'Melodic Minor (ascending)':[0,2,3,5,7,9,11],'Dorian':[0,2,3,5,7,9,10],'Phrygian':[0,1,3,5,7,8,10],'Lydian':[0,2,4,6,7,9,11],'Mixolydian':[0,2,4,5,7,9,10],'Locrian':[0,1,3,5,6,8,10],'Major Pentatonic':[0,2,4,7,9],'Minor Pentatonic':[0,3,5,7,10],'Blues':[0,3,5,6,7,10],'Whole Tone':[0,2,4,6,8,10]};
+const chords={'Major':[0,4,7],'Minor':[0,3,7],'Diminished':[0,3,6],'Augmented':[0,4,8],'Sus2':[0,2,7],'Sus4':[0,5,7],'Major 7':[0,4,7,11],'Dominant 7':[0,4,7,10],'Minor 7':[0,3,7,10],'Half-diminished 7':[0,3,6,10],'Diminished 7':[0,3,6,9],'Minor-major 7':[0,3,7,11],'Major 9':[0,4,7,11,14]};
+function fillSelect(id,options){$(id).innerHTML=options.map((n,i)=>`<option value="${i}">${n}</option>`).join('')};fillSelect('scaleRoot',names);fillSelect('chordRoot',names);$('scaleType').innerHTML=Object.keys(scales).map(s=>`<option>${s}</option>`).join('');$('chordType').innerHTML=Object.keys(chords).map(s=>`<option>${s}</option>`).join('');
+function drawPiano(){let root=+$('scaleRoot').value,steps=scales[$('scaleType').value],set=new Set(steps.map(n=>(root+n)%12));$('scaleNotes').innerHTML=steps.map(n=>`<span class="pill">${names[(root+n)%12]}</span>`).join('');$('scaleFormula').textContent='Semitone offsets: '+steps.join(' · ')+' · octave';let html='';for(let midi=60;midi<=84;midi++){let pc=midi%12,black=[1,3,6,8,10].includes(pc);html+=`<button class="key ${black?'black':''} ${set.has(pc)?'in-scale':''} ${pc===root?'root':''}" data-midi="${midi}" title="${names[pc]}${Math.floor(midi/12)-1}">${names[pc]}</button>`}$('piano').innerHTML=html;$('piano').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{tone(+b.dataset.midi,initAudio().currentTime);b.classList.add('hit');setTimeout(()=>b.classList.remove('hit'),240)}))}
+$('scaleRoot').onchange=drawPiano;$('scaleType').onchange=drawPiano;$('scalePlay').onclick=()=>{let ctx=initAudio(),r=+$('scaleRoot').value,seq=[...scales[$('scaleType').value],12];seq.forEach((n,i)=>tone(60+r+n,ctx.currentTime+.08+i*.32,.3))};drawPiano();
+function drawChord(){let r=+$('chordRoot').value,steps=chords[$('chordType').value];$('chordNotes').textContent=steps.map(n=>names[(r+n)%12]).join('  ·  ');$('chordIntervals').textContent='Semitone intervals above root: '+steps.join(', ')}$('chordRoot').onchange=drawChord;$('chordType').onchange=drawChord;function playChord(arp){let ctx=initAudio(),r=+$('chordRoot').value;chords[$('chordType').value].forEach((n,i)=>tone(60+r+n,ctx.currentTime+.08+(arp?i*.27:0),arp?.36:1,.18))}$('chordPlay').onclick=()=>playChord(false);$('chordArp').onclick=()=>playChord(true);drawChord();
+let metroRunning=false,metroTimer=null,metroNext=0,metroIndex=0,metroEvents=[];function dots(){let n=+$('metroBeats').value;$('metroDots').innerHTML=Array.from({length:n},(_,i)=>`<div id="beat${i}" style="width:38px;height:38px;border-radius:50%;background:${i===0?'#8b4b2e':'#333b46'};border:2px solid ${i===0?'#ff994a':'#53ddec'}"></div>`).join('')};dots();$('metroBeats').onchange=()=>{metroIndex=0;dots()};$('metroBpm').oninput=()=>{$('metroBpmText').textContent=$('metroBpm').value+' BPM'};
+function metroSchedule(){if(!metroRunning)return;let ctx=initAudio(),n=+$('metroBeats').value;while(metroNext<ctx.currentTime+.12){let i=metroIndex%n;click(metroNext,i===0);metroEvents.push({t:metroNext,i});metroIndex++;metroNext+=60/(+$('metroBpm').value)}metroEvents=metroEvents.filter(e=>e.t>ctx.currentTime-.2);let past=metroEvents.filter(e=>e.t<=ctx.currentTime).at(-1);if(past){for(let j=0;j<n;j++){let el=$('beat'+j);if(el)el.style.background=j===past.i?(j===0?'#ff994a':'#53ddec'):'#303440'}}}
+function stopMetro(){metroRunning=false;clearInterval(metroTimer);metroTimer=null;$('metroToggle').textContent='▶ START';dots()};$('metroToggle').onclick=()=>{if(metroRunning){stopMetro();return}initAudio();metroRunning=true;metroIndex=0;metroEvents=[];metroNext=audio.currentTime+.06;$('metroToggle').textContent='■ STOP';metroTimer=setInterval(metroSchedule,25);metroSchedule()};document.addEventListener('visibilitychange',()=>{if(document.hidden&&metroRunning)stopMetro()});
+const rudFamilies={
+'Roll Rudiments':['Single Stroke Roll','Single Stroke Four','Single Stroke Seven','Multiple Bounce Roll','Triple Stroke Roll','Double Stroke (Open) Roll','Five Stroke Roll','Six Stroke Roll','Seven Stroke Roll','Nine Stroke Roll','Ten Stroke Roll','Eleven Stroke Roll','Thirteen Stroke Roll','Fifteen Stroke Roll','Seventeen Stroke Roll'],
+'Diddle Rudiments':['Single Paradiddle','Double Paradiddle','Triple Paradiddle','Paradiddle-diddle'],
+'Flam Rudiments':['Flam','Flam Accent','Flam Tap','Flamacue','Flam Paradiddle','Single Flammed Mill','Flam Paradiddle-diddle','Pataflafla','Swiss Army Triplet','Inverted Flam Tap','Flam Drag'],
+'Drag Rudiments':['Drag','Single Drag Tap','Double Drag Tap','Lesson 25','Single Dragadiddle','Drag Paradiddle #1','Drag Paradiddle #2','Single Ratamacue','Double Ratamacue','Triple Ratamacue']};
+/* RING 5.7.4 | Complete rudiment reference */
+const rudSticking = {
+  'Single Stroke Roll': 'R L R L R L R L',
+  'Single Stroke Four': 'R L R L',
+  'Single Paradiddle': 'R L R R L R L L',
+  'Double Paradiddle': 'R L R L R R L R L R L L',
+  'Triple Paradiddle': 'R L R L R L R R L R L R L R L L',
+  'Paradiddle-diddle': 'R L R R L L',
+  'Single Stroke Seven': 'R L R L R L R',
+  'Multiple Bounce Roll': '~',
+  'Triple Stroke Roll': 'R R R L L L',
+  'Double Stroke (Open) Roll': 'R R L L R R L L',
+  'Five Stroke Roll': 'R R L L >R',
+  'Six Stroke Roll': 'R L L R R >L',
+  'Seven Stroke Roll': 'R R L L R R >L',
+  'Nine Stroke Roll': 'R R L L R R L L >R',
+  'Ten Stroke Roll': 'R R L L R R L L >R >L',
+  'Eleven Stroke Roll': 'R R L L R R L L R R >L',
+  'Thirteen Stroke Roll': 'R R L L R R L L R R L L >R',
+  'Fifteen Stroke Roll': 'R R L L R R L L R R L L R R >L',
+  'Seventeen Stroke Roll': 'R R L L R R L L R R L L R R L L >R',
+  'Flam': 'lR rL',
+  'Flam Accent': 'lR L R rL R L',
+  'Flam Tap': 'lR R rL L',
+  'Flamacue': 'lR L >R L rL',
+  'Flam Paradiddle': 'lR L R R rL R L L',
+  'Single Flammed Mill': 'lR L R L rL R L R',
+  'Flam Paradiddle-diddle': 'lR L R R L L',
+  'Pataflafla': 'lR L rL R',
+  'Swiss Army Triplet': 'lR R L rL L R',
+  'Inverted Flam Tap': 'R lR L rL',
+  'Flam Drag': 'lR llR rL rrL',
+  'Drag': 'llR rrL',
+  'Single Drag Tap': 'llR L rrL R',
+  'Double Drag Tap': 'llR llR L rrL rrL R',
+  'Lesson 25': 'llR L R rrL R L',
+  'Single Dragadiddle': 'llR L R R rrL R L L',
+  'Drag Paradiddle #1': 'llR L R R rrL R L L',
+  'Drag Paradiddle #2': 'R llR L R R L rrL R L L',
+  'Single Ratamacue': 'llR L R L',
+  'Double Ratamacue': 'llR llR L R L',
+  'Triple Ratamacue': 'llR llR llR L R L'
+};
+
+function rudStickingHTML(name) {
+  const pattern = rudSticking[name];
+  if (!pattern) return '';
+
+  if (pattern === '~') {
+    return `<div class="rud-sticking">
+      <div class="rud-sticking-label">TECHNIQUE REFERENCE</div>
+      <div class="rud-sticking-hands">
+        <span class="rud-buzz">MULTIPLE BOUNCE / BUZZ ROLL</span>
+      </div>
+    </div>`;
+  }
+
+  const tokens = pattern.split(' ');
+
+  const renderToken = token => {
+    const match = token.match(/^(>?)((?:r|l){0,2})([RL])$/);
+    if (!match) return '';
+
+    const accent = match[1] === '>';
+    const grace = match[2];
+    const hand = match[3];
+
+    return `<span class="rud-token">
+      ${accent ? '<span class="rud-accent">&gt;</span>' : ''}
+      ${grace ? `<span class="rud-grace">${grace}</span>` : ''}
+      <span class="rud-hand rud-hand-${hand.toLowerCase()}">${hand}</span>
+    </span>`;
+  };
+
+  return `<div class="rud-sticking">
+    <div class="rud-sticking-label">STICKING / TECHNIQUE SHORTHAND</div>
+    <div class="rud-sticking-hands">${tokens.map(renderToken).join('')}</div>
+    <div class="rud-notation-note">Simplified example ? see PAS for full rhythm and articulation.</div>
+  </div>`;
+}
+const rud=Object.entries(rudFamilies).flatMap(([family,items])=>items.map(name=>({family,name})));function renderRud(){let q=$('rudSearch').value.trim().toLowerCase(),f=$('rudFamily').value,filtered=rud.filter(r=>(!f||r.family===f)&&r.name.toLowerCase().includes(q));$('rudCount').textContent=filtered.length+' / '+rud.length+' rudiments';$('rudList').innerHTML=filtered.map(r=>`<div class="rud"><div><strong>${r.name}</strong><br><small>${r.family}</small>${rudStickingHTML(r.name)}</div><span class="tag">REFERENCE</span></div>`).join('')||'<p>No matching rudiments.</p>'}$('rudSearch').oninput=renderRud;$('rudFamily').onchange=renderRud;renderRud();
+const intervals=[['Minor 2nd',1],['Major 2nd',2],['Minor 3rd',3],['Major 3rd',4],['Perfect 4th',5],['Tritone',6],['Perfect 5th',7],['Minor 6th',8],['Major 6th',9],['Minor 7th',10],['Major 7th',11],['Octave',12]];let earCurrent=null,earRoot=60,earTotal=0,earCorrect=0,earAnswered=false;function replay(){if(!earCurrent)return;let ctx=initAudio();tone(earRoot,ctx.currentTime+.07,.48);tone(earRoot+earCurrent[1],ctx.currentTime+.72,.65)}function newEar(){earCurrent=intervals[Math.floor(Math.random()*intervals.length)];earRoot=55+Math.floor(Math.random()*12);earAnswered=false;$('earFeedback').textContent='';let options=[earCurrent];while(options.length<4){let x=intervals[Math.floor(Math.random()*intervals.length)];if(!options.includes(x))options.push(x)}options.sort(()=>Math.random()-.5);$('earChoices').innerHTML=options.map(x=>`<button data-interval="${x[1]}">${x[0]}</button>`).join('');$('earChoices').querySelectorAll('button').forEach(b=>b.onclick=()=>{if(earAnswered)return;earAnswered=true;earTotal++;let ok=+b.dataset.interval===earCurrent[1];if(ok)earCorrect++;$('earFeedback').textContent=ok?'Correct! '+earCurrent[0]:'Not quite — '+earCurrent[0]+' ('+earCurrent[1]+' semitones).';$('earScore').textContent=earCorrect+' correct / '+earTotal+' attempted';localStorage.setItem('sonic-ear-score',JSON.stringify([earCorrect,earTotal]));$('earChoices').querySelectorAll('button').forEach(x=>{x.disabled=true;if(+x.dataset.interval===earCurrent[1])x.classList.add('active')})});replay()}$('newQuestion').onclick=newEar;$('replayQuestion').onclick=replay;try{let s=JSON.parse(localStorage.getItem('sonic-ear-score'));if(Array.isArray(s)&&s.length===2){[earCorrect,earTotal]=s;$('earScore').textContent=earCorrect+' correct / '+earTotal+' attempted'}}catch(e){};
+
+/* RING 1.2 | Chromatic state; no network or audio side effects */
+(()=>{
+ const slider=document.getElementById('sonicHue');
+ const readout=document.getElementById('sonicHueReadout');
+ const invert=document.getElementById('sonicInvert');
+ const rewarp=document.getElementById('sonicRewarp');
+ const storageKey='sonic-chromatic-v1';
+ const apply=(hue,inverted,save=true)=>{
+   const h=Math.max(0,Math.min(359,Math.round(Number(hue)||0)));
+   document.documentElement.style.setProperty('--sonic-hue',String(h));
+   document.body.classList.toggle('sonic-invert',Boolean(inverted));
+   slider.value=String(h);invert.checked=Boolean(inverted);
+   readout.textContent=String(h).padStart(3,'0')+'°';
+   if(save){try{localStorage.setItem(storageKey,JSON.stringify({hue:h,inverted:Boolean(inverted)}))}catch(e){}}
+ };
+ let previous={hue:25,inverted:false};
+ try{const stored=JSON.parse(localStorage.getItem(storageKey));if(stored&&Number.isFinite(Number(stored.hue)))previous={hue:stored.hue,inverted:stored.inverted===true}}catch(e){}
+ apply(previous.hue,previous.inverted,false);
+ slider.addEventListener('input',()=>apply(slider.value,invert.checked));
+ invert.addEventListener('change',()=>apply(slider.value,invert.checked));
+ rewarp.addEventListener('click',()=>apply(Math.floor(Math.random()*360),invert.checked));
+})();
+</script></body></html>

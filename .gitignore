@@ -1,4 +1,4 @@
-# Python
+﻿# Python
 __pycache__/
 *.py[cod]
 .venv/
@@ -35,7 +35,6 @@ backups/
 # Local experiments
 Sonic_Chromatic_Reactor_Ring_1_2/
 Sonic_Native_Identity_Ring_1_3/
-sonic_workshop/
 Widget_Wall_Sonic_Integration_Ring_1_1B/
 
 # Editor and operating system
@@ -44,3 +43,6 @@ Widget_Wall_Sonic_Integration_Ring_1_1B/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Ring development snapshots
+.ring-backups/

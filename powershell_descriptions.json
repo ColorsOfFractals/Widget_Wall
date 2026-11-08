@@ -1,0 +1,18 @@
+﻿{
+    "dr-recursion":  "Launches the Dr. Recursion collection script.",
+    "ufa":  "Unblocks files using PowerShell Unblock-File.",
+    "sign":  "Applies an Authenticode signature to files using the configured signing certificate.",
+    "bom":  "Inspects or modifies text-file encoding and byte-order marks.",
+    "paintshop":  "Navigates to the Paintshop workspace and lists its contents.",
+    "say":  "Writes formatted console text with configurable color and icon.",
+    "hydrate":  "Reads file contents with optional encoding, raw output, or tail selection.",
+    "web":  "Opens or launches web resources using available local tools.",
+    "wake":  "Surveys project directories and provides an interactive project-selection workflow.",
+    "fu":  "Provides an interactive Git workflow. Review its implementation before using it.",
+    "unzip":  "Extracts an archive to a selected destination.",
+    "zip":  "Creates a compressed archive from a selected path.",
+    "paint":  "Interactive utility; detailed behavior has not yet been documented.",
+    "t":  "Opens a ticket-related resource using a supplied ticket identifier.",
+    "Wake-Fractal":  "Fractal workspace helper; detailed behavior has not yet been documented.",
+    "pipe2vbox":  "VirtualBox-related helper; detailed behavior has not yet been documented."
+}

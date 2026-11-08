@@ -1,4 +1,12 @@
+from local_calendar import LocalCalendar
+from stock_ticker import StockTicker
+from analog_clock import AnalogClock
 from weather_pocket import PocketWeather
+from photo_booth import PhotoBooth
+from music_controller import MusicController
+from utility_widgets import WIDGET_CLASSES
+from system_widgets import SYSTEM_WIDGET_CLASSES
+from clipboard_vault import CLIPBOARD_WIDGET_CLASSES
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -358,7 +366,7 @@ class Bridge(QObject):
 
     @Slot(str)
     def spawn(self, kind):
-        if kind not in COLORS and kind not in ("weather", "sonic-workshop", "polyrhythm-reactor"):
+        if kind not in COLORS and kind not in ("weather", "sonic-workshop", "polyrhythm-reactor", "photo-frame", 'analog-clock', 'stocks', 'calendar', 'music') and kind not in WIDGET_CLASSES and kind not in SYSTEM_WIDGET_CLASSES and kind not in CLIPBOARD_WIDGET_CLASSES and kind not in ("system", "search"):
             return
         self.host.spawn_widget(kind)
 
@@ -406,7 +414,7 @@ class TitleBar(QWidget):
         row = QHBoxLayout(self)
         row.setContentsMargins(14, 0, 7, 0)
 
-        label = QLabel("◆  WIDGET_WALL  |  RING 0.8")
+        label = QLabel("◆  WIDGET_WALL")
         label.setStyleSheet(
             "color:#ffab65;font:bold 12px Segoe UI;border:none;"
         )
@@ -489,7 +497,7 @@ class WidgetWall(QMainWindow):
         self.setWindowIcon(QIcon(str(Path(__file__).resolve().parent / 'assets' / 'Widget_Wall.ico')))
 
         self.widgets = []
-        self.setWindowTitle("Widget_Wall | Ring 0.8")
+        self.setWindowTitle("WIDGET_WALL")
         self.setWindowFlags(Qt.Window | Qt.FramelessWindowHint)
         self.resize(1100, 820)
         self.setMinimumSize(700, 520)
@@ -530,7 +538,24 @@ class WidgetWall(QMainWindow):
             widget.show()
             widget.raise_()
             return
-        widget = PocketWeather(len(self.widgets)) if kind == "weather" else MiniWidget(kind, len(self.widgets))
+        widget_classes = {
+            'photo-frame': PhotoBooth,
+            'analog-clock': AnalogClock,
+            'stocks': StockTicker,
+            'calendar': LocalCalendar,
+            'music': MusicController,
+            **WIDGET_CLASSES,
+            **SYSTEM_WIDGET_CLASSES,
+            **CLIPBOARD_WIDGET_CLASSES,
+            'system': WIDGET_CLASSES['cpu-ram'],
+            'search': WIDGET_CLASSES['web-search'],
+        }
+        if kind in widget_classes:
+            widget = widget_classes[kind]()
+        elif kind == 'weather':
+            widget = PocketWeather(len(self.widgets))
+        else:
+            widget = MiniWidget(kind, len(self.widgets))
         self.widgets.append(widget)
         widget.destroyed.connect(
             lambda obj=None, w=widget: self.remove_widget(w)

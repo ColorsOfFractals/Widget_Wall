@@ -1,0 +1,62 @@
+[
+  {
+    "id": "klik",
+    "name": "Klik / RSI Helper",
+    "icon": "\ud83d\uddb1\ufe0f",
+    "short": "PowerShell \u2192 HTTP \u2192 Tampermonkey",
+    "description": "A localhost communication bridge connecting desktop automation with browser-side userscripts.",
+    "example": "PowerShell and a local HTTP service coordinate with Tampermonkey. The complete automated cycle remains an integration milestone.",
+    "category": "Desktop Automation",
+    "status": "PROTOTYPE"
+  },
+  {
+    "id": "entra",
+    "name": "Entra OAuth Handoff",
+    "icon": "\ud83d\udd10",
+    "short": "PowerShell \u2192 Browser \u2192 Entra",
+    "description": "Coordinates interactive Microsoft authentication between PowerShell, the browser, and Microsoft Entra.",
+    "example": "PowerShell starts the authentication flow, the browser handles interactive sign-in, and the authorized session returns to PowerShell.",
+    "category": "Authentication",
+    "status": "DEMONSTRATED"
+  },
+  {
+    "id": "museum",
+    "name": "MuseumOS Bridge",
+    "icon": "\ud83c\udfdb\ufe0f",
+    "short": "Custom URI \u2192 PowerShell \u2192 Localhost",
+    "description": "Uses the custom mosbridge:// URI protocol to hand browser requests to local Windows automation.",
+    "example": "A registered URI launches the local protocol handler, which passes the request to PowerShell and the localhost workflow.",
+    "category": "Protocol Integration",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "id": "catapult",
+    "name": "TM Catapult",
+    "icon": "\ud83d\ude80",
+    "short": "JavaScript \u2192 HTTP \u2192 PowerShell",
+    "description": "Connects browser-side JavaScript automation to PowerShell through a localhost HTTP service.",
+    "example": "A userscript sends a structured request to the local Catapult endpoint on port 8770 for desktop-side processing.",
+    "category": "Automation",
+    "status": "EXISTING TOOL"
+  },
+  {
+    "id": "tauri",
+    "name": "Tauri Native Bridge",
+    "icon": "\ud83e\udd80",
+    "short": "JavaScript \u2192 Rust \u2192 OS",
+    "description": "Connects web-based application interfaces to native Rust commands and operating-system functionality.",
+    "example": "Applications such as Jukebox and Vox Box use the Tauri architecture to bridge frontend interactions with native capabilities.",
+    "category": "Native Applications",
+    "status": "ARCHITECTURAL PATTERN"
+  },
+  {
+    "id": "qt",
+    "name": "Qt WebChannel",
+    "icon": "\ud83d\udd17",
+    "short": "React \u2192 Python \u2192 Native widgets",
+    "description": "Powers communication between Widget Wall's React interface and its Python/PySide6 backend.",
+    "example": "React invokes an exposed Qt WebChannel method, and Python launches or manages a native desktop widget.",
+    "category": "Application Architecture",
+    "status": "IMPLEMENTED"
+  }
+]

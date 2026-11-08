@@ -12,23 +12,23 @@ const libraryCatalog = [
   {id:'counter',name:'Counter',category:'Productivity',description:'Increment, decrement, and reset.',ready:true},
   {id:'clock',name:'Digital Clock',category:'Time & Planning',description:'Live clock with seconds.',ready:true},
   {id:'weather',name:'Pocket Weather',category:'Information & Web',description:'Animated transparent weather sprite. Drag anywhere; right-click for live city weather.',ready:true},
-  {id:'analog-clock',name:'Analog Clock',category:'Time & Planning',description:'Classic clock face.'},
-  {id:'photo-frame',name:'Photo Frame',category:'Desktop & Media',description:'Rotating personal photos.'},
-  {id:'stocks',name:'Stock Ticker',category:'Information & Web',description:'Market watchlist.'},
-  {id:'calendar',name:'Calendar',category:'Time & Planning',description:'Dates and appointments.'},
-  {id:'email',name:'Email Checker',category:'Information & Web',description:'Unread message indicator.'},
-  {id:'system',name:'CPU / RAM Monitor',category:'System & Hardware',description:'Live system resource usage.'},
-  {id:'battery',name:'Battery Monitor',category:'System & Hardware',description:'Battery and charging state.'},
-  {id:'rss',name:'RSS News Reader',category:'Information & Web',description:'Headline feeds.'},
-  {id:'calculator',name:'Calculator',category:'Productivity',description:'Quick arithmetic.'},
-  {id:'todo',name:'To-Do List',category:'Productivity',description:'Small task checklist.'},
-  {id:'currency',name:'Currency Converter',category:'Information & Web',description:'Foreign exchange calculations.'},
-  {id:'search',name:'Web Search',category:'Productivity',description:'Quick search launcher.'},
-  {id:'dictionary',name:'Dictionary',category:'Information & Web',description:'Word definitions.'},
-  {id:'music',name:'Music Player',category:'Desktop & Media',description:'Playback controls.'},
-  {id:'network',name:'Network Monitor',category:'System & Hardware',description:'Network interface statistics.'},
-  {id:'countdown',name:'Countdown Timer',category:'Time & Planning',description:'Countdown to an event.'},
-  {id:'recycle',name:'Recycle Bin',category:'Desktop & Media',description:'Trash status and actions.'}
+  {id:'analog-clock',name:'Analog Clock',category:'Time & Planning',description:'Classic clock face.',ready:true},
+  {id:'photo-frame',name:'Photo Booth',category:'Desktop & Media',description:'Local fullscreen photo slideshow with nostalgic transitions.',ready:true},
+  {id:'stocks',name:'Stock Ticker',category:'Information & Web',description:'Market watchlist.',ready:true},
+  {id:'calendar',name:'Calendar',category:'Time & Planning',description:'Dates and appointments.',ready:true},
+  {id:'clipboard',name:'Clipboard Vault',category:'Desktop & System',description:'Multiline clipboard history with full-entry viewing and one-click copy.',ready:true},
+  {id:'system',name:'CPU / RAM Monitor',category:'System & Hardware',description:'Live system resource usage.',ready:true},
+  {id:'battery',name:'Battery Monitor',category:'System & Hardware',description:'Battery and charging state.',ready:true},
+  {id:'rss',name:'RSS News Reader',category:'Information & Web',description:'Headline feeds.',ready:true},
+  {id:'calculator',name:'Calculator',category:'Productivity',description:'Quick arithmetic.',ready:true},
+  {id:'todo',name:'To-Do List',category:'Productivity',description:'Small task checklist.',ready:true},
+  {id:'currency',name:'Currency Converter',category:'Information & Web',description:'Foreign exchange calculations.',ready:true},
+  {id:'search',name:'Web Search',category:'Productivity',description:'Quick search launcher.',ready:true},
+  {id:'dictionary',name:'Dictionary',category:'Information & Web',description:'Word definitions.',ready:true},
+  {id:'music',name:'Music Player',category:'Desktop & Media',description:'Windows media remote with album artwork, transport controls, fluid timeline, and custom palettes.',ready:true},
+  {id:'network',name:'Network Monitor',category:'System & Hardware',description:'Network interface statistics.',ready:true},
+  {id:'countdown',name:'Countdown Timer',category:'Time & Planning',description:'Countdown to an event.',ready:true},
+  {id:'recycle',name:'Recycle Bin',category:'Desktop & Media',description:'Trash status and actions.',ready:true}
 ];
 const libraryCategories = ['All Widgets','System & Hardware','Time & Planning','Productivity','Information & Web','Desktop & Media'];
 let nativeBridge = null;
@@ -51,6 +51,7 @@ import { createRoot } from "react-dom/client";
 import "./style.css";
 
 import fractalLexicon from './fractal_lexicon.json';
+import tokenbridgesLexicon from "./tokenbridges_lexicon.json";
 
 const sonicCatalog = [
   {id: 'sonic-workshop', name: 'SONIC WORKSHOP', category: 'Music Theory', description: 'Living Music Book, Scale Explorer, Chord Forge, metronome, rudiments, and Interval Ear Trainer.'},
@@ -61,12 +62,8 @@ const modules = [
     description: "Spawn bridges between tools and environments." },
   { id: "MW", name: "MINI WIDGETS", icon: "◈",
     description: "Small tools for delightfully specific problems." },
-  { id: "WR", name: "WIDGET REGISTRY", icon: "▦",
-    description: "Explore installed modules and their states." },
   { id: "SW", name: "MUSIC WIDGETS", icon: "♫", description: "Interactive musical instruments and theory laboratories." },
   { id: "PS", name: "POWERSHELL WIDGETS", icon: ">_", description: "Discover PowerShell profile functions without executing them." },
-  { id: "ST", name: "SETTINGS", icon: "⚙",
-    description: "Customize the environment and its behavior." }
 ];
 
 function App() {
@@ -77,6 +74,8 @@ function App() {
   const [logs, setLogs] = useState([]);
   const [seconds, setSeconds] = useState(0);
   const [page, setPage] = useState('home');
+  const [selectedTokenBridge, setSelectedTokenBridge] = useState('klik');
+  const [tokenBridgeSearch, setTokenBridgeSearch] = useState('');
   const [psFunctions, setPsFunctions] = useState([]);
   const [psStatus, setPsStatus] = useState('Ready to inspect local profiles.');
   const [category, setCategory] = useState('All Widgets');
@@ -98,7 +97,7 @@ function App() {
   useEffect(() => {
     log("Chromatic reactor initialized.");
     log("React control engine online.");
-    log("Five modules registered.");
+    log(`${modules.length} modules registered.`);
   }, []);
 
   function rewarp() {
@@ -108,6 +107,11 @@ function App() {
   }
 
   function activate(module) {
+    if (module.id === "TB") {
+      setPage("tokenbridges");
+      log("TOKENBRIDGES // concept vault opened");
+      return;
+    }
     if (module.id === "PS") {
       setPage("powershell");
       setPsStatus("Requesting read-only discovery...");
@@ -192,7 +196,6 @@ function App() {
       <main className="shell">
         <header className="topline">
           <span><i className="pulse"/> REACTOR ONLINE</span>
-          <span>RING 0.8 // POCKET WEATHER</span>
         </header>
 
         <nav className="ww-nav">
@@ -202,6 +205,7 @@ function App() {
           <button className={page === 'music' ? 'selected' : ''} onClick={() => setPage('music')}>MUSIC WIDGETS</button>
           <button className={page === 'powershell' ? 'selected' : ''} onClick={() => activate(modules.find(m => m.id === "PS"))}>&#9889; POWERSHELL</button>
           <button className={page === 'fractal' ? 'selected' : ''} onClick={() => setPage('fractal')}>&#127744; FRACTAL WIDGETS</button>
+          <button className={page === 'tokenbridges' ? 'selected' : ''} onClick={() => activate(modules.find(m => m.id === "TB"))}>&#128279; TOKENBRIDGES</button>
         </nav>
         {page === 'home' && <>
         <div className="hero">
@@ -224,7 +228,7 @@ function App() {
             <article className="card" key={module.id}>
               <div className="card-top">
                 <div className="module-icon">{module.icon}</div>
-                <span className="module-id">0{i+1} / 06</span>
+                <span className="module-id">{String(i + 1).padStart(2, '0')} / {String(modules.length).padStart(2, '0')}</span>
               </div>
               <h2>{module.name}</h2>
               <p>{module.description}</p>
@@ -342,6 +346,7 @@ function App() {
               {psFunctions.map((fn, i) => (
                 <div className="mini-tile" key={`${fn.source}:${fn.name}:${i}`}>
                   <h3>{fn.name}</h3>
+                  {fn.description && <p>{fn.description}</p>}
                   <p>{fn.parameters.length ? `Parameters: ${fn.parameters.join(', ')}` : 'No declared parameters'}</p>
                   <p>{fn.engine} // line {fn.line}</p>
                 </div>
@@ -361,13 +366,70 @@ function App() {
                 <button key={item.id} type="button" className="mini-tile"
                   onClick={() => setSelectedFractal(item.id)}
                   style={{cursor:'pointer', textAlign:'left', borderColor:selectedFractal === item.id ? '#f0a45a' : undefined}}>
-                  <h3>{item.icon} {item.name}</h3>
+                  <h3><span style={{color:"#f39a48",marginRight:10,fontSize:12,letterSpacing:1}}>{item.icon}</span>{item.name}</h3>
                   <p>{item.short}</p>
+                  <p>{item.description}</p>
                   <p>{item.category} // {item.status}</p>
                 </button>
               ))}
             </div>
             {fractalLexicon.filter(item => item.id === selectedFractal).map(item => (
+              <div key={item.id} className="mini-tile" style={{marginTop:20, padding:20}}>
+                <h2><span style={{color:"#f39a48",marginRight:12,fontSize:14,letterSpacing:1}}>{item.icon}</span>{item.name}</h2>
+                <p>{item.description}</p>
+                <h3>EXAMPLE APPLICATION</h3>
+                <p>{item.example}</p>
+                <p>{item.category} // {item.status} // READ ONLY</p>
+              </div>
+            ))}
+          </section>
+        )}
+
+        <style>{`
+          .tokenbridge-search::placeholder {
+            color: #a98b79;
+            opacity: 1;
+          }
+          .tokenbridge-search:focus {
+            border-color: #f39a48 !important;
+            box-shadow: 0 0 0 2px rgba(243,154,72,.18);
+          }
+          .tokenbridge-search::-webkit-search-cancel-button {
+            cursor: pointer;
+          }
+        `}</style>
+        {page === 'tokenbridges' && (
+          <section className="mini-launcher">
+            <div className="mini-heading">
+              <h2>TOKENBRIDGES // CONCEPT VAULT</h2>
+              <button onClick={() => setPage('home')}>BACK</button>
+            </div>
+            <p>Explore the conceptual architecture of controlled communication between systems. Documentation only; no tokens are created or transmitted here.</p>
+            <input
+              type="search"
+              className="tokenbridge-search"
+              aria-label="Search TokenBridges concepts"
+              placeholder="Search concepts..."
+              value={tokenBridgeSearch}
+              onChange={event => setTokenBridgeSearch(event.target.value)}
+              style={{width:'100%',padding:'14px 16px',marginBottom:18,boxSizing:'border-box',background:'#130f0c',color:'#f4d8c0',border:'1px solid #a85418',borderRadius:10,fontFamily:'inherit',fontSize:15,outline:'none'}}
+            />
+            <div className="mini-grid">
+              {tokenbridgesLexicon.filter(item =>
+                [item.name, item.short, item.description, item.category]
+                  .some(value => value.toLowerCase().includes(tokenBridgeSearch.toLowerCase().trim()))
+              ).map(item => (
+                <button key={item.id} type="button" className="mini-tile"
+                  onClick={() => setSelectedTokenBridge(item.id)}
+                  style={{cursor:'pointer', textAlign:'left', borderColor:selectedTokenBridge === item.id ? '#f0a45a' : undefined}}>
+                  <h3>{item.icon} {item.name}</h3>
+                  <p>{item.short}</p>
+                  <p>{item.description}</p>
+                  <p>{item.category} // {item.status}</p>
+                </button>
+              ))}
+            </div>
+            {tokenbridgesLexicon.filter(item => item.id === selectedTokenBridge).map(item => (
               <div key={item.id} className="mini-tile" style={{marginTop:20, padding:20}}>
                 <h2>{item.icon} {item.name}</h2>
                 <p>{item.description}</p>
@@ -383,10 +445,9 @@ function App() {
 
       <footer className="statusbar">
         <span><i className="pulse"/> SYSTEM ACTIVE</span>
-        <span>MODULES: 06</span>
+        <span>MODULES: {String(modules.length).padStart(2, '0')}</span>
         <span>HUE: {hue}°</span>
         <span>UPTIME: {Math.floor(seconds/60)}m {seconds%60}s</span>
-        <span>RING 0.8</span>
       </footer>
     </div>
   );
