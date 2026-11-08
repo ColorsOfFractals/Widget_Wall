@@ -5,7 +5,11 @@ import queue
 import random
 import threading
 import time
-from urllib.parse import urlencode
+import http.client
+import socket
+import ssl
+from urllib.error import URLError
+from urllib.parse import urlencode, urlsplit
 from urllib.request import Request, urlopen
 
 from PySide6.QtCore import Qt, QTimer, QPointF
@@ -14,9 +18,70 @@ from PySide6.QtWidgets import QWidget, QMenu, QInputDialog
 
 
 def _fetch_json(url):
+    """Fetch JSON, recovering from a broken Open-Meteo TLS endpoint."""
     req = Request(url, headers={"User-Agent": "WidgetWall-PocketWeather/0.8"})
-    with urlopen(req, timeout=9) as response:
-        return json.load(response)
+
+    try:
+        with urlopen(req, timeout=9) as response:
+            return json.load(response)
+    except URLError as exc:
+        parsed = urlsplit(url)
+        if (
+            parsed.scheme != "https"
+            or parsed.hostname != "api.open-meteo.com"
+            or not isinstance(exc.reason, ssl.SSLCertVerificationError)
+        ):
+            raise
+
+        original_error = exc
+
+    host = "api.open-meteo.com"
+    addresses = socket.getaddrinfo(
+        host, 443, family=socket.AF_INET, type=socket.SOCK_STREAM
+    )
+    ips = list(dict.fromkeys(item[4][0] for item in addresses))
+
+    class VerifiedEndpoint(http.client.HTTPSConnection):
+        def __init__(self, hostname, address):
+            super().__init__(
+                hostname, timeout=9, context=ssl.create_default_context()
+            )
+            self.address = address
+
+        def connect(self):
+            raw = socket.create_connection((self.address, 443), self.timeout)
+            try:
+                self.sock = self._context.wrap_socket(
+                    raw, server_hostname=self.host
+                )
+            except BaseException:
+                raw.close()
+                raise
+
+    target = parsed.path or "/"
+    if parsed.query:
+        target += "?" + parsed.query
+
+    for ip in ips:
+        connection = VerifiedEndpoint(host, ip)
+        try:
+            connection.request(
+                "GET",
+                target,
+                headers={"User-Agent": "WidgetWall-PocketWeather/0.8"}
+            )
+            response = connection.getresponse()
+            if response.status != 200:
+                raise RuntimeError(
+                    "Open-Meteo returned HTTP " + str(response.status)
+                )
+            return json.load(response)
+        except (OSError, ssl.SSLError, http.client.HTTPException):
+            continue
+        finally:
+            connection.close()
+
+    raise original_error
 
 
 def _weather_for_windows():
