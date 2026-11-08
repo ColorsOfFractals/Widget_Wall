@@ -570,6 +570,7 @@ class WidgetWall(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon(str(ROOT / 'assets' / 'Widget_Wall.ico')))
     window = WidgetWall()
     window.show()
     sys.exit(app.exec())
