@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Node / Vite
+node_modules/
+dist/
+.npm/
+*.log
+
+# Packaging
+build/
+release/
+*.spec
+
+# Local archives
+backups/
+*.bak
+*.tmp
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+*credentials*
+*secrets*
+
+# Local experiments
+Sonic_Chromatic_Reactor_Ring_1_2/
+Sonic_Native_Identity_Ring_1_3/
+sonic_workshop/
+Widget_Wall_Sonic_Integration_Ring_1_1B/
+
+# Editor and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

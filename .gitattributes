@@ -1,0 +1,18 @@
+# Normalize text in Git; preserve local working-tree conventions
+* text=auto
+
+# Source and configuration
+*.py text eol=lf
+*.jsx text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+
+# Windows PowerShell
+*.ps1 text eol=crlf
+
+# Binary assets
+*.png binary
+*.ico binary

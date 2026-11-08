@@ -1,0 +1,162 @@
+[
+    {
+        "id":  "beacon",
+        "name":  "BEACON",
+        "icon":  "📡",
+        "short":  "Observe reality",
+        "description":  "Capture live evidence before changing a system.",
+        "example":  "Survey services, network settings, or authentication state before repair.",
+        "category":  "Observation",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "vessel",
+        "name":  "VESSEL",
+        "icon":  "🚢",
+        "short":  "Carry context",
+        "description":  "A structured container for moving meaningful state between environments, sessions, or tools.",
+        "example":  "Package an investigation handoff for another working environment.",
+        "category":  "Transport",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "belt",
+        "name":  "BELT",
+        "icon":  "📋",
+        "short":  "Transfer payload",
+        "description":  "A clipboard-oriented way to transport a prepared Vessel.",
+        "example":  "Copy a hydrated handoff to another console or conversation.",
+        "category":  "Transport",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "foundry",
+        "name":  "FOUNDRY",
+        "icon":  "🌀",
+        "short":  "Transform knowledge",
+        "description":  "Convert observations into useful procedures, scripts, notes, and other artifacts.",
+        "example":  "Turn a completed troubleshooting session into an SOP.",
+        "category":  "Transformation",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "verify",
+        "name":  "VERIFY",
+        "icon":  "🔴",
+        "short":  "Compare reality",
+        "description":  "Compare observed results against intended state after an operation.",
+        "example":  "Confirm a repaired service is running and a changed file has the expected hash.",
+        "category":  "Validation",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "orchard",
+        "name":  "ORCHARD",
+        "icon":  "🌱",
+        "short":  "Grow reusable capability",
+        "description":  "Preserve living tools, scripts, surveys, templates, and known-good techniques for reuse.",
+        "example":  "Plant a successful site-survey technique for the next visit.",
+        "category":  "Preservation",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "museum",
+        "name":  "MUSEUM",
+        "icon":  "🏛️",
+        "short":  "Preserve the expedition",
+        "description":  "Record investigation history, evidence, discoveries, decisions, and lineage.",
+        "example":  "Archive what happened and why a repair was chosen.",
+        "category":  "Preservation",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "adapter",
+        "name":  "ADAPTER",
+        "icon":  "🧩",
+        "short":  "Normalize systems",
+        "description":  "Translate external tool-specific interfaces into common states and capabilities.",
+        "example":  "Give several management portals a consistent readiness display.",
+        "category":  "Integration",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "portal-power",
+        "name":  "PORTAL POWER",
+        "icon":  "⚡",
+        "short":  "Measure operational reach",
+        "description":  "Show which authenticated management environments are available or degraded.",
+        "example":  "Distinguish READY from AUTH REQUIRED or DEGRADED.",
+        "category":  "Integration",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "workshop",
+        "name":  "WORKSHOP",
+        "icon":  "🧵",
+        "short":  "Deterministic tools",
+        "description":  "House repeatable utilities that perform defined operations.",
+        "example":  "Run a known-good local validation or transformation.",
+        "category":  "Execution",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "library",
+        "name":  "LIBRARY",
+        "icon":  "📚",
+        "short":  "Retrieve knowledge",
+        "description":  "Find preserved context and artifacts from previous work.",
+        "example":  "Recover a documented repair before repeating it.",
+        "category":  "Knowledge",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "space-rock",
+        "name":  "SPACE ROCK",
+        "icon":  "🪨",
+        "short":  "Record discoveries",
+        "description":  "Mark anomalies, blockers, and important findings during an investigation.",
+        "example":  "Preserve an unexpected dependency without losing the investigation thread.",
+        "category":  "Investigation",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "survey",
+        "name":  "SURVEY",
+        "icon":  "🔭",
+        "short":  "Inspect before changing",
+        "description":  "Observe a system and collect evidence about its current state without intentionally modifying it.",
+        "example":  "Inspect services, disk health, network settings, and logs before attempting a repair.",
+        "category":  "Observation",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "srbf-method",
+        "name":  "SRBF METHOD",
+        "icon":  "🧭",
+        "short":  "Survey, Reason, Bake, Fossil",
+        "description":  "A four-stage workflow: survey the current state, reason from the evidence, bake a controlled change, and fossilize the verified result.",
+        "example":  "Survey an application, reason through a repair, bake the patch, then fossilize its validated state.",
+        "category":  "Methodology",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "fossil",
+        "name":  "FOSSIL",
+        "icon":  "🦴",
+        "short":  "Preserve verified state",
+        "description":  "Record a completed and validated implementation so its evidence, decisions, and recovery context remain available.",
+        "example":  "Preserve a successful build, its validation results, backup location, and release notes.",
+        "category":  "Preservation",
+        "status":  "CONCEPT"
+    },
+    {
+        "id":  "fmi",
+        "name":  "FMI",
+        "icon":  "♻",
+        "short":  "Forward Momentum Idempotence",
+        "description":  "A safety principle for RSI-driven development. Each ring surveys the current application, compares it against defined acceptance criteria, skips completed work, applies only necessary changes, and validates the result. Iteration stops when all required criteria are satisfied.",
+        "example":  "RSI builds an app through successive rings: inspect the current implementation, identify the next unmet requirement, make a bounded change, run validation, and repeat only while requirements remain unmet. Re-running a completed ring should leave the verified state unchanged.",
+        "category":  "Methodology",
+        "status":  "CONCEPT"
+    }
+]
