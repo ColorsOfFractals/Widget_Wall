@@ -491,12 +491,29 @@ class TitleBar(QWidget):
             self.toggle_maximize()
 
 
+from update_checker import check_for_updates
+from PySide6.QtCore import QThread, Signal, QTimer
+from PySide6.QtWidgets import QMessageBox
+from PySide6.QtGui import QDesktopServices
+
+
+class UpdateCheckWorker(QThread):
+    completed = Signal(object)
+
+    def run(self):
+        try:
+            result = check_for_updates(timeout=5)
+            self.completed.emit(result)
+        except Exception as exc:
+            print(f"Widget Wall update check failed: {exc}")
+
 class WidgetWall(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowIcon(QIcon(str(Path(__file__).resolve().parent / 'assets' / 'Widget_Wall.ico')))
 
         self.widgets = []
+        self._update_closing = False
         self.setWindowTitle("WIDGET_WALL")
         self.setWindowFlags(Qt.Window | Qt.FramelessWindowHint)
         self.resize(1100, 820)
@@ -524,7 +541,48 @@ class WidgetWall(QMainWindow):
             raise FileNotFoundError("Run npm run build first.")
 
         self.web.load(QUrl.fromLocalFile(str(page)))
+        QTimer.singleShot(1500, self.start_update_check)
 
+    def start_update_check(self):
+        if self._update_closing:
+            return
+        worker = getattr(self, "update_worker", None)
+        if worker is not None and worker.isRunning():
+            return
+        self.update_worker = UpdateCheckWorker(self)
+        self.update_worker.completed.connect(self.handle_update_result)
+        self.update_worker.start()
+
+    def closeEvent(self, event):
+        self._update_closing = True
+        worker = getattr(self, "update_worker", None)
+        if worker is not None and worker.isRunning():
+            worker.requestInterruption()
+            if not worker.wait(6500):
+                self._update_closing = False
+                event.ignore()
+                return
+        super().closeEvent(event)
+
+    def handle_update_result(self, result):
+        if self._update_closing:
+            return
+        if result.status != "UPDATE_AVAILABLE":
+            return
+
+        if not result.release_url:
+            return
+
+        dialog = QMessageBox(self)
+        dialog.setWindowTitle("Widget Wall Update")
+        dialog.setText(result.message)
+        dialog.setInformativeText("Would you like to view the release?")
+        view_button = dialog.addButton("View release", QMessageBox.AcceptRole)
+        dialog.addButton("Later", QMessageBox.RejectRole)
+        dialog.exec()
+
+        if dialog.clickedButton() == view_button:
+            QDesktopServices.openUrl(QUrl(result.release_url))
     def spawn_widget(self, kind):
         if kind in ("sonic-workshop", "polyrhythm-reactor"):
             filename = "index.html" if kind == "sonic-workshop" else "Polyrhythm_Reactor.html"

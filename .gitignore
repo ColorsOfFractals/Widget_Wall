@@ -1,4 +1,4 @@
-﻿# Python
+# Python
 __pycache__/
 *.py[cod]
 .venv/
@@ -46,3 +46,4 @@ desktop.ini
 
 # Ring development snapshots
 .ring-backups/
+!/installer/Widget_Wall_Portable.spec
